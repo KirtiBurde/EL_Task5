@@ -82,9 +82,131 @@ str.replace('$', ''): Removes dollar signs
 Result:
 These financial columns can now be used for mathematical operations, statistical summaries, and plotting.
 
+**6. describe()**
+This will give the basic statistics of all the numeric columns.
+Numeric columns are: Stores
+                     
+                     Sales
+
+                     Inventory
+
+                     Return
+The basic statistics it explains that are: Count                     
+
+                                           Mean
+
+                                           std
+
+                                           min
+
+                                           25%
+
+                                           50%
+
+                                           75%
+
+                                           max
+
+**7. Finding the value counts:**
+
+1. Region
+
+code: df.Region.value_counts()
+
+It show that which region hs how much values.
+
+Shows the values highest to the lowest.
+
+output:
+
+Western Europe               62
+Africa                       56
+South America                54
+Pacific                      45
+United States                40
+Canada                       37
+Central America/Caribbean    32
+Eastern Europe               31
+Middle East                  24
+Asia                         14
+
+2. Product
+
+code: df.Product.value_counts()
+
+output:
+
+Boot              52
+Slipper           52
+Sport Shoe        51
+Women's Dress     51
+Men's Dress       50
+Sandal            49
+Men's Casual      45
+Women's Casual    45
+
+3. Subsidiary
+
+code: df.Subsidiary.value_counts()
+
+output:
+
+Addis Ababa     8
+Chicago         8
+Canberra        8
+Jakarta         8
+Kuala Lumpur    8
+Manila          8
+Buenos Aires    8
+Caracas         8
+La Paz          8
+Montevideo      8
+Sao Paulo       8
+Los Angeles     8
+Al-Khobar       8
+Minneapolis     8
+New York        8
+Seattle         8
+Copenhagen      8
+Geneva          8
+Heidelberg      8
+Lisbon          8
+London          8
+Paris           8
+Dubai           8
+Tel Aviv        8
+Warsaw          8
+Managua         8
+Cairo           8
+Khartoum        8
+Seoul           8
+Montreal        8
+Prague          8
+Toronto         8
+Vancouver       8
+Kingston        8
+Rome            8
+Mexico City     8
+San Juan        8
+Budapest        8
+Bogota          7
+Luanda          7
+Algiers         7
+Auckland        7
+Kinshasa        7
+Santiago        7
+Moscow          7
+Ottawa          7
+Singapore       6
+Nairobi         6
+Calgary         6
+Madrid          6
+Johannesburg    5
+Bangkok         5
+Tokyo           1
 
 
-**HEATMAP**
+**8. HEATMAP**
 
 This heatmap shows the correlation matrix of four key business variables: Returns, Inventory, Sales, and Stores. It was generated using Python's Seaborn library in a Jupyter Notebook.
 
@@ -121,7 +243,7 @@ The heatmap indicates strong interdependence among Returns, Sales, and Inventory
 This correlation analysis can help guide decisions such as optimizing inventory levels, forecasting returns, or evaluating store performance.
 
 
-**PAIRPLOT**
+**9. PAIRPLOT**
 
 
 A pairplot is a visualization tool from the seaborn library that shows:
@@ -221,7 +343,7 @@ Action: Consider log transformation for predictive models; also analyze top-perf
 > The business is growth-oriented: expansion in stores leads to higher sales, which increases inventory needs and returns. But operational costs (inventory, returns) also rise. Balancing growth with efficiency is key.
 
 
-**HISTPLOT**
+**10. HISTPLOT**
 
 X-axis (Count): Number of records (e.g., transactions, entries, or data points).
 
@@ -294,7 +416,10 @@ Gap Identification: Asia's lower count could mean potential for growth or data c
 Reporting: Use this plot in executive dashboards to highlight data coverage. 
 
 
-**SCATTER PLOT 1.**
+**11. SCATTER PLOT**
+
+**1.**
+
  Scatter Plot Explanation: Inventory vs Sales
 
 This scatter plot (from your Jupyter notebook cell) visualizes:
@@ -348,7 +473,7 @@ The few data points with high sales and high inventory may represent successful 
 
 A predictive model (e.g., linear regression) could be built to predict sales based on inventory with reasonably high accuracy due to the clear trend.
 
-**SCATTERPLOT 2. **
+**2.**
 
 Explanation of the Scatter Plot
 
@@ -409,7 +534,7 @@ Customer dissatisfaction
 Errors in data entry or billing
 
 
-BOX PLOT 
+**12. BOX PLOT** 
 
 Explanation of the Box Plot
 
@@ -437,7 +562,6 @@ Very little variability, and no significant outliers.
 
 Interpretation: This could be a count or ID field. If it's count data, most products seem to be linked with few stores.
 
-
 2. Sales
 
 Moderate spread in the box (middle 50%).
@@ -446,7 +570,6 @@ A large number of outliers on the higher end.
 
 Interpretation: Most sales values are relatively low, but there are some products or regions with extremely high sales — these may be driving overall revenue.
 
-
 3. Inventory
 
 The widest box with many extreme outliers.
@@ -454,7 +577,6 @@ The widest box with many extreme outliers.
 The highest variability among all features.
 
 Interpretation: There are major differences in inventory levels — possibly due to different product types or demand patterns. Some products have extremely high stock levels that may need optimization.
-
 
 4. Returns
 
@@ -475,11 +597,9 @@ Suggests that some products or stores are overstocked or extremely high-performi
 These values may skew KPIs and require segmentation.
 
 
-
 2. Returns Are Low But Worth Watching:
 
 Despite being small overall, the presence of outliers in returns calls for root cause analysis (e.g., poor product quality, regional issues).
-
 
 
 3. Inventory Optimization Opportunity:
@@ -487,7 +607,78 @@ Despite being small overall, the presence of outliers in returns calls for root 
 Consider reducing inventory on low-performing products or redistributing stock based on demand.
 
 
-
 4. Skewed Distributions:
 
 All variables except Stores are right-skewed — meaning a log transformation may help with normalization if you're applying machine learning or statistical models.
+
+**13. Finding outliers in Inventory column**
+
+Explanation of the Boxplot
+The image shows a Jupyter Notebook displaying a boxplot, likely created using pandas or matplotlib in Python. The boxplot visualizes four variables from a dataset:
+
+Stores
+
+Sales
+
+Inventory
+
+Returns
+
+Each of these variables is represented as a separate boxplot, allowing for a comparison of their distributions.
+
+Boxplot Elements:
+
+The central line in each box represents the median value.
+
+The box edges represent the first (Q1) and third (Q3) quartiles.
+
+Whiskers extend to show the range within 1.5 times the interquartile range (IQR) from the quartiles.
+
+Dots outside the whiskers indicate outliers.
+
+Insights from the Boxplot
+Stores:
+The distribution is tightly clustered, with a small IQR and few outliers. This suggests that most products/subsidiaries have a similar number of stores, with only a few exceptions.
+
+Sales:
+The boxplot for sales is more spread out, indicating greater variability. There are several outliers on the higher end, suggesting that while most products have moderate sales, a few have exceptionally high sales.
+
+Inventory:
+Inventory also shows a wide spread and a significant number of outliers, indicating that some products or subsidiaries maintain much higher inventory levels than the majority. This could point to overstocking or anticipation of high demand for certain items.
+
+Returns:
+Returns have a very tight distribution with a small box and a few outliers. This suggests that most products have low return rates, but a few experience unusually high returns, which may warrant further investigation.
+
+Key Observations
+Presence of Outliers:
+All four variables show outliers, particularly sales and inventory, indicating some products or subsidiaries significantly deviate from the norm.
+
+Variability:
+Sales and inventory are more variable compared to stores and returns. This could reflect differences in product popularity, stocking strategies, or demand fluctuations.
+
+Operational Insights:
+
+High sales outliers could represent best-selling products or successful marketing campaigns.
+
+High inventory outliers may indicate overstocking or slow-moving products.
+
+High return outliers could point to product quality issues or mismatched customer expectations.
+
+Data Quality:
+The presence of outliers suggests the need for further analysis, such as investigating the causes or considering data transformation or filtering steps for modeling.
+
+Storing the index index in a variable
+ o = o.index
+
+ Displaying the indexes
+ o
+  The output displays the indices stored in o which are collection of integer row indices: 
+  index are([ 16,  21,  99, 101, 103, 106, 108, 111, 114, 179, 182, 185, 187, 192,
+       193, 210, 232, 294, 295, 297, 318, 321, 324, 339, 353, 361])
+
+Removing the rows from the DataFrame
+df = df.drop(labels=o)
+This will remove the rows containing outliers in the DataFrame with this drop fuction.
+
+df
+This line shows the DataFrame after cleaning and removing the outliers.
